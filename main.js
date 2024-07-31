@@ -27,7 +27,16 @@ let atual = 0;
 let perguntaAtual
 
 function mostraPergunta () {
-    perguntaAtual = perguntas [atual];
-    caixaPerguntas.textContent
-
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    mostraAlternativas();
 }
+
+function mostraAlternativas () {
+    for(const alternativa of perguntaAtual.alternativas) {
+        const botaoAlernativas = document.createElement("button");
+        botaoAlernativas.textContent = alternativa;
+        caixaAlternativas.appendChild(botaoAlernativas);
+    }
+}
+mostraPergunta();
